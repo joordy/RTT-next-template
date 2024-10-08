@@ -1,0 +1,46 @@
+{
+  "extends": ["next/core-web-vitals", "prettier"],
+  "plugins": [
+    "simple-import-sort",
+    "eslint-plugin-prettier",
+    "eslint-plugin-react"
+  ],
+  "rules": {
+    "no-console": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^@/types"],
+          ["^react"],
+          ["^next"],
+          ["^"],
+          ["^@/app"],
+          ["^@/lib"],
+          ["^@/hooks"],
+          ["^@/components"],
+          ["^@/providers"],
+          ["^@/config"],
+          ["^@/atoms"],
+          ["^@/styles"],
+          ["^\\."]
+        ]
+      }
+    ],
+    "import/newline-after-import": ["error", { "count": 1 }]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint/eslint-plugin"]
+    },
+    {
+      "files": ["tailwind.config.ts"],
+      "rules": {
+        "simple-import-sort/imports": "off"
+      }
+    }
+  ]
+}
